@@ -4,4 +4,13 @@ if [ $# -eq 2 ]
 then
 	ip=$(dig "$2"."$1" +short)
 	echo "The subdomain $2 is a A record and points to $ip"
+else
+	ip1=$(dig www."$1" +short)
+	ip2=$(dig lb-01."$1" +short)
+	ip3=$(dig web-01."$1" +short)
+	ip4=$(dig web-02."$1" +short)
+	echo "The subdomain www is a A record and points to $ip1"
+	echo "The subdomain lb-01 is a A record and points to $ip2"
+	echo "The subdomain web-01 is a A record and points to $ip3"
+	echo "The subdomain web-02 is a A record and points to $ip4"
 fi
