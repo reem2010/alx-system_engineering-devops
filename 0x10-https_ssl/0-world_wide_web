@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
 # subdomain
+if [ $# -eq 2 ]
+then
+	ip=$(dig "$2"."$1" +short)
+	echo "The subdomain $2 is a A record and points to $ip"
+fi
