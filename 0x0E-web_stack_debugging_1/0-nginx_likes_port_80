@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #start nginx
+sed -i 's/8080/80/' /etc/nginx/sites-available/default
 service nginx restart
